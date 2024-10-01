@@ -16,7 +16,7 @@ namespace Restaurants.Application.Dishies.Dtos
         public int? KiloCalories { get; set; }
         public int RestaurantId { get; set; }
 
-        public static DishDto FromEntity(Dish dish)
+        /*public static DishDto FromEntity(Dish dish)
         {
             return new DishDto()
             {
@@ -26,6 +26,6 @@ namespace Restaurants.Application.Dishies.Dtos
                 Price = dish.Price,
                 KiloCalories = dish.KiloCalories
             };
-        }
+        }*/
     }
 }

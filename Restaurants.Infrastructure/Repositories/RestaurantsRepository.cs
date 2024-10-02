@@ -20,5 +20,12 @@ namespace Restaurants.Infrastructure.Repositories
             return restaurant;
 
         }
+
+        public async Task<int> Create(Restaurant entity)
+        {
+            dbContext.Restaurants.Add(entity);
+            await dbContext.SaveChangesAsync();
+            return entity.Id;
+        }
     }
 }

@@ -9,19 +9,19 @@ namespace Restaurants.Application.Restaurants.Dtos
 {
     public class CreateRestaurantDto
     {
-        [StringLength(100,MinimumLength = 3)]
+        //[StringLength(100,MinimumLength = 3)]
         public string Name { get; set; } = default;
         public string Description { get; set; } = default;
-        [Required(ErrorMessage = "Insret a valid category")]
+       // [Required(ErrorMessage = "Insret a valid category")]
         public string Category { get; set; } = default;
         public bool hasDelivery { get; set; }
-        [EmailAddress(ErrorMessage = "Please provide a valid email address")]
+       // [EmailAddress(ErrorMessage = "Please provide a valid email address")]
         public string? ContactEmail { get; set; }
-        [Phone(ErrorMessage = "Please provide a valid phone number")]
+       // [Phone(ErrorMessage = "Please provide a valid phone number")]
         public string? ContactNumber { get; set; }
         public string? City { get; set; }
         public string? Street { get; set; }
-        [RegularExpression(@"^\d{2}-\d{3}$",ErrorMessage = "Please provide a valid postal code (XX-XXX).")]
+       // [RegularExpression(@"^\d{2}-\d{3}$",ErrorMessage = "Please provide a valid postal code (XX-XXX).")]
         public string? PostalCode { get; set; }
     }
 }

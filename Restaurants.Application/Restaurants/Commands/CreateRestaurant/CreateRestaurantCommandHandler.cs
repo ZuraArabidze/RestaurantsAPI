@@ -12,10 +12,10 @@ namespace Restaurants.Application.Restaurants.Commands.CreateRestaurant
     public class CreateRestaurantCommandHandler(ILogger<CreateRestaurantCommandHandler> logger ,
         IMapper mapper, IRestaurantsRepository restaurantsRepository) : IRequestHandler<CreateRestaurantCommand, int>
     {
-        public async Task<int> Handle(CreateRestaurantCommand requset, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateRestaurantCommand request, CancellationToken cancellationToken)
         {
-            logger.LogInformation("Getting all restaurants");
-            var restaurant = mapper.Map<Restaurant>(requset);
+            logger.LogInformation("Creating a new restaurant {@Restaurant}",request);
+            var restaurant = mapper.Map<Restaurant>(request);
             int id = await restaurantsRepository.Create(restaurant);
             return id;
         }

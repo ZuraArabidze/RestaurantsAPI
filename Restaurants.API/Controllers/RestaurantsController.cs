@@ -26,13 +26,13 @@ namespace Restaurants.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<RestaurantDto?>> GetById([FromRoute] int id)
         {
-            var restaurant = mediator.Send(new GetRestaurantByIdQuery(id));
-            if (restaurant is null)
-            {
-                return NotFound();
-            }
+                var restaurant = mediator.Send(new GetRestaurantByIdQuery(id));
+                if (restaurant is null)
+                {
+                    return NotFound();
+                }
 
-            return Ok(restaurant);
+                return Ok(restaurant);
         }
 
         [HttpPost]

@@ -26,7 +26,7 @@ namespace Restaurants.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<RestaurantDto?>> GetById([FromRoute] int id)
         {
-                var restaurant = mediator.Send(new GetRestaurantByIdQuery(id));
+                var restaurant = await mediator.Send(new GetRestaurantByIdQuery(id));
                 if (restaurant is null)
                 {
                     return NotFound();
@@ -69,7 +69,7 @@ namespace Restaurants.API.Controllers
             var isUpdated = await mediator.Send(command);
             if (isUpdated)
             {
-                return NotFound();
+                return NoContent();
             }
 
             return NotFound();

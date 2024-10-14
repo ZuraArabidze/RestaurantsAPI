@@ -13,6 +13,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
+builder.Services.AddScoped<RequestTimeLoggingMiddleware>();
 
 builder.Services.AddApplication();
 builder.Services.AddInfrastructre(builder.Configuration);
@@ -28,8 +29,9 @@ builder.Host.UseSerilog((context, configuration) =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-
 app.UseMiddleware<ErrorHandlingMiddleware>();
+app.UseMiddleware<RequestTimeLoggingMiddleware>();
+
 app.UseSerilogRequestLogging();
 
 if (app.Environment.IsDevelopment())

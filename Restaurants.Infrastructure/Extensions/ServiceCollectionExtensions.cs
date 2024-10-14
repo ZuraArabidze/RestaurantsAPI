@@ -17,6 +17,7 @@ namespace Restaurants.Infrastructure.Extensions
                 .EnableSensitiveDataLogging());
 
             services.AddScoped<IRestaurantsRepository, RestaurantsRepository>();
+            services.AddScoped<IDishesRepository, DishisRepository>();
         }
     }
 }
